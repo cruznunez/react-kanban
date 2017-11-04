@@ -1,0 +1,39 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import Notes from 'components/Notes';
+
+if(process.env.NODE_ENV !== 'production') {
+  React.Perf = require('react-addons-perf');
+}
+const HelloWorld = React.createClass({
+  stutter: function(times, stutter) {
+    var txt = '';
+    for (let i = 0; i < times; i++) {
+      txt += stutter;
+    }
+    return txt;
+  },
+  render: function() {
+    return (
+      <div>
+        <div>{ this.stutter(this.props.stutterTimes, this.props.stutter) }Hello world!</div>
+        <div>{foo.printInfo()}</div>
+      </div>
+    );
+  }
+});
+
+const foo = {
+  bar: 'Cheers',
+  song: 'Sometimes you want to go where everybody knows your name',
+  printInfo: function() {
+    let x = 'Hello: ' + this.bar + 'Play song: ' + this.song;
+    return x;
+  }
+};
+
+ReactDOM.render(
+  <HelloWorld stutterTimes={4} stutter={'Hell...'}/>,
+  document.getElementById('app')
+);

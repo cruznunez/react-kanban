@@ -100,9 +100,9 @@ switch(TARGET) {
       },
       parts.setupCSS(PATHS.style),
       parts.devServer({
-        // Customize host/port here if needed
-        host: 'react-class-cruznunez.c9users.io',
-        https: false,
+        // if this doesn't work, kill me
+        // echo "0.0.0.0 $C9_HOSTNAME" | sudo tee -a /etc/hosts
+        host: process.env.C9_HOSTNAME,
         port: process.env.PORT,
         poll: ENABLE_POLLING
       }),

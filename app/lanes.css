@@ -1,0 +1,48 @@
+.lanes {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.lane {
+  display: inline-block;
+
+  margin: 1em;
+
+  background-color: #e2e4e6;
+  border: 1px solid #ccc;
+  border-radius: 0.25em;
+
+  width: 19em;
+  vertical-align: top;
+}
+
+.lane-header {
+  font-size: 1.3em;
+  font-weight: 700;
+  overflow: auto;
+  padding: 0.5em;
+  color: #333;
+}
+
+/* edit lane name */
+.edit.lane-name {
+  background: none;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+/*lane delete css*/
+.lane-delete {
+  float: right;
+  margin-left: 0.5em;
+  visibility: hidden;
+}
+.lane-header:hover .lane-delete {
+  visibility: visible;
+}
+.lane-delete button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 0;
+}

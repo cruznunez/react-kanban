@@ -1,43 +1,27 @@
 import React from 'react';
 import uuid from 'uuid';
-import Notes from './Notes';
+import {compose} from 'redux';
+import {DragDropContext} from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+import connect from '../libs/connect';
+import AppHeader from './AppHeader';
+import Lanes from './Lanes';
+import LaneActions from '../actions/LaneActions';
+import SettingsActions from '../actions/SettingsActions';
 
+const App = ({LaneActions, lanes, SettingsActions, settings}) => {
+  return (
+    <div className={`app ${settings.theme}`} style={{fontSize: settings.fontSize}}>
+      <AppHeader settings={settings}/>
+      <Lanes lanes={lanes} />
+    </div>
+  );
+};
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      notes: [
-        {
-          id: uuid.v4(),
-          task: 'Learn React'
-        },
-        {
-          id: uuid.v4(),
-          task: 'Do laundry'
-        }
-      ]
-    }
-  }  
-  
-  render() {
-    const {notes} = this.state;
-    
-    return (
-      <div>
-        <button onClick={this.addNote}>+</button>
-        <Notes notes={notes}/>
-      </div>
-    );
-  }
-  
-  addNote = () => {
-    this.setState({
-      notes: this.state.notes.concat([{
-        id: uuid.v4(),
-        task: 'New task'
-      }])
-    });
-  }
-}
+export default compose(
+  DragDropContext(HTML5Backend),
+  connect(
+    ({lanes, settings}) => ({lanes, settings}),
+    {LaneActions, SettingsActions}
+  )
+)(App);

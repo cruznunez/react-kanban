@@ -1,5 +1,13 @@
-body {
-  background-color: cornsilk;
+@import 'flex.css';
+@import 'notes.css';
+@import 'lanes.css';
+@import 'settings.css';
 
+body {
   font-family: sans-serif;
+  margin: 0;
+}
+html, body, #app, .app {
+  height: 100%;
+  width: 100%;
 }

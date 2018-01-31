@@ -2,14 +2,12 @@
   overflow-x: scroll;
   white-space: nowrap;
 }
-/*.lanes::-webkit-scrollbar {*/
-    /*width: 0px;*/
-    /*height: 0;*/
-    /*background: transparent;*/
-/*}*/
 .lanes::-webkit-scrollbar {
-  background: white;
-  /*display: none;*/
+  /*background: darkblue;*/
+  display: none;
+}
+.lanes:hover::-webkit-scrollbar {
+  display: block;
 }
 .lane {
   display: inline-block;

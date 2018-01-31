@@ -4,7 +4,7 @@ export default class SettingsStore {
   constructor() {
     this.bindActions(SettingsActions);
     this.settings = {
-      theme: 'light',
+      theme: 'blue',
       fontSize: 16
     };
   }
